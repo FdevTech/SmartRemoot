@@ -1,0 +1,65 @@
+
+1. Download Example Code
+1-1. Download BlueZ 5.43.
+1
+	
+wget www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz
+
+1-2. Extract the file.
+1
+	
+tar xvf bluez-5.43.tar.xz
+
+The GATT server example code “example-gatt-server” is in “test” directory.
+1
+2
+	
+$ ls bluez-5.43/test/example-gatt-server 
+bluez-5.43/test/example-gatt-server
+
+ 
+
+2. Install Requisite
+2-1. Update package list.
+1
+	
+sudo apt-get update
+
+2-2. Install python package manager.
+1
+	
+sudo apt-get install python3-pip -y
+
+2-3. Install dbus.
+1
+	
+sudo pip3 install pydbus
+
+ 
+
+3. Execute Example Code
+3-1. Execute BLE GATT server example code.
+1
+	
+./bluez-5.43/test/example-gatt-server
+
+3-2. Check the output. If everything is fine, it should be like this:
+Registering GATT application...
+GetManagedObjects
+GATT application registered
+Battery Level drained: 98
+Battery Level drained: 96
+
+4. Start Advertising BLE
+The next step is to start advertising in order to be detected by other 
+devices. To make the steps easier, I’ll use hciconfig command.
+and there is a secend method to do that with dbus interface 
+so for the first method 
+in terminal type this fto start advertising  :
+	
+sudo hciconfig hci0 leadv 0
+
+Type below to stop the advertisement :
+
+sudo hciconfig hci0 noleadv
+
