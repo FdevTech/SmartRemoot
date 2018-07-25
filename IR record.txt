@@ -1,0 +1,10 @@
+sudo /etc/init.d/lircd stop  % arrete IR 
+irrecord -f -d /dev/lirc0 ~/lirc.conf % lancer l enregestrement " valide "
+irrecord --list-namespace % afficher tous les possibilités des buttons 
+
+sudo nano /etc/lirc/lircd.conf % pour modifier dans le fichier etc/lirc/ lircd.conf
+
+sudo kill $(pidof lircd) % pour arret le service de ir
+
+https://raspberrypi.stackexchange.com/questions/70945/setting-up-a-remote-control-using-lirc
+
